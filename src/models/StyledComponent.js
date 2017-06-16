@@ -125,13 +125,15 @@ export default (ComponentStyle: Function, constructWithOptions: Function) => {
     render() {
       const { innerRef } = this.props
       const { generatedClassName } = this.state
-      const { styledComponentId, target } = this.constructor
+      // const { styledComponentId, target } = this.constructor
+      const { target, displayName } = this.constructor
 
       const isTargetTag = isTag(target)
 
       const className = [
         this.props.className,
-        styledComponentId,
+        displayName,
+        // styledComponentId,
         this.attrs.className,
         generatedClassName,
       ].filter(Boolean).join(' ')
